@@ -1,0 +1,35 @@
+<body>
+    <h2>Program Hitung Umur</h2>
+    <label for="tahun">Masukan Tahun Lahir:</label>
+    <input type="number" id="tahun" placeholder="contoh:2000">
+    <button onclick="hitungUmur()">Hitung</button>
+    
+    <p id="hasil"></p>
+
+    <script>
+        function hitungUmur(){
+            let tahunLahir = document.getElementById("tahun").value;
+            let tahunSekarang = new Date().getFullYear();
+            let umur = tahunSekarang - tahunLahir;
+
+            document.getElementById("hasil").innerHTML =
+            "umur kamu sekarang adalah" + umur + "tahun.";
+        
+            //1. jika kosong
+            if (tahunLahir ==="") {
+                hasil.innerHTML = "Tahun lahir tidak boleh kosong";
+                hasil.style.color ="red";
+                return;
+            }
+            //2. jika lebih besar dari tahun sekarang
+            if (parseInt(tahunLahir) > tahunSekarang) {
+                hasil.innerHTML = "tahun lahir tidak boleh lebih besar dari tahun sekarang";
+                hasil.style.color ="red"
+                return;
+            }
+            // jika valid
+            hasil.innerHTML = "input valid!";
+            hasil.style.color = "green";
+        }
+    </script>
+</body>
